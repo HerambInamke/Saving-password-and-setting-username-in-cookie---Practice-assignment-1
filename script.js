@@ -14,10 +14,24 @@ document.addEventListener('DOMContentLoaded', function() {
       name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
   }
 
-  // 1. Get the value of the 'count' cookie
-  // 2. If the cookie exists, increment the value and update the cookie
-  // 3. If the cookie does not exist, create it and set the value to 1
-  // 4. Display the count on the webpage
+  // Get the current count from the cookie or initialize it
+  let count = getCookie('pageCount');
+  
+  // If cookie doesn't exist, initialize it to 1
+  // If it exists, increment it by 1
+  if (count === null) {
+    count = 1;
+  } else {
+    count = parseInt(count) + 1;
+  }
 
-  // your code here
+  // Update the cookie with the new count
+  // Set it to expire in 7 days
+  setCookie('pageCount', count, 7);
+
+  // Display the count on the webpage
+  const countDisplay = document.getElementById('countDisplay');
+  if (countDisplay) {
+    countDisplay.textContent = count;
+  }
 });
