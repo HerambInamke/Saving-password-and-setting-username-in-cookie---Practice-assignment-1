@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get the current count from the cookie or initialize it
   let count = getCookie('pageCount');
   
-  // If cookie doesn't exist, initialize it to 1
+  // If cookie doesn't exist, initialize it to 0
   // If it exists, increment it by 1
   if (count === null) {
-    count = 1;
+    count = 0;
   } else {
     count = parseInt(count) + 1;
   }
